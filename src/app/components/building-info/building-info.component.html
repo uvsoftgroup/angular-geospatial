@@ -1,0 +1,227 @@
+<form [formGroup]="buildingRegistrationForm">
+
+  <!--{{buildingRegistrationForm.value | json}} -->
+
+  <div>
+    <button class="save-button" (click)="buildingRegistrationGenerator()">
+        {{ 'ui_buttons.new' | translate }}
+    </button>
+    <button class="edit-button" (click)="buildingRegistrationGenerator()">
+        {{ 'ui_buttons.edit' | translate }}
+    </button>
+    <button class="delete-button" (click)="buildingRegistrationDelete(selectedItem.id)">
+        {{ 'ui_buttons.delete' | translate }}
+    </button>
+  </div>
+
+  <table>
+
+    <tr>
+      <td>
+          <div><label for="buId"> {{ 'building-registration.buId' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="buId" id="buId" name="buId"
+          [(ngModel)]="buildingInfo.buId">
+        </div>
+      </td>
+
+      <td>
+        <div><label for="buAddressId">{{ 'building-registration.buAddressId' | translate }}</label></div>
+        <div>
+        <input type="text" formControlName="buAddressId" id="buAddressId" name="buAddressId"
+        [(ngModel)]="buildingInfo.buAddressId">
+      </div>
+
+    </td>
+    <td>
+      <div><label for="userRefNrId">{{ 'building-registration.userRefNrId' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="userRefNrId" id="userRefNrId" name="userRefNrId"
+      [(ngModel)]="buildingInfo.userRefNrId">
+    </div>
+  </td>
+  <td>
+    <div> <label for="buPlId">{{ 'building-registration.buPlId' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="buPlId" id="buPlId" name="buPlId"
+    [(ngModel)]="buildingInfo.buPlId">
+  </div>
+</td>
+    </tr>
+    <tr>
+      <td>
+          <div><label for="buCode"> {{ 'building-registration.buCode' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="buCode" id="buCode" name="buCode"
+          [(ngModel)]="buildingInfo.buCode">
+        </div>
+      </td>
+
+      <td>
+        <div><label for="buName">{{ 'building-registration.buName' | translate }}</label></div>
+        <div>
+        <input type="text" formControlName="buName" id="buName" name="buName"
+        [(ngModel)]="buildingInfo.buName">
+      </div>
+
+    </td>
+    <td>
+      <div> <label for="buUseType">{{ 'building-registration.userRefNrId' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="buUseType" id="buUseType" name="buUseType"
+      [(ngModel)]="buildingInfo.buUseType">
+    </div>
+  </td>
+
+  <td>
+    <div><label for="buNumberOfFloor">{{ 'building-registration.buNumberOfFloor' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="buNumberOfFloor" id="buNumberOfFloor" name="buNumberOfFloor"
+    [(ngModel)]="buildingInfo.buNumberOfFloor">
+  </div>
+</td>
+    </tr>
+
+    <tr>
+      <td>
+          <div> <label for="buTotalHeight"> {{ 'building-registration.buTotalHeight' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="buTotalHeight" id="buTotalHeight" name="buTotalHeight"
+          [(ngModel)]="buildingInfo.buTotalHeight">
+        </div>
+      </td>
+
+      <td>
+        <div><label for="buNumberOfFloorUnit">{{ 'building-registration.buName' | translate }}</label></div>
+        <div>
+        <input type="text" formControlName="buNumberOfFloorUnit" id="buNumberOfFloorUnit" name="buNumberOfFloorUnit"
+        [(ngModel)]="buildingInfo.buNumberOfFloorUnit">
+      </div>
+
+    </td>
+    <td>
+      <div> <label for="buTotalGroundArea">{{ 'building-registration.buTotalGroundArea' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="buTotalGroundArea" id="buTotalGroundArea" name="buTotalGroundArea"
+      [(ngModel)]="buildingInfo.buTotalGroundArea">
+    </div>
+  </td>
+
+  <td>
+    <div><label for="buTotalFloorArea">{{ 'building-registration.buTotalFloorArea' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="buTotalFloorArea" id="buTotalFloorArea" name="buTotalFloorArea"
+    [(ngModel)]="buildingInfo.buTotalFloorArea">
+  </div>
+</td>
+    </tr>
+
+    <tr>
+      <td>
+          <div><label for="buSetBackFront"> {{ 'building-registration.buSetBackFront' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="buSetBackFront" id="buSetBackFront" name="buSetBackFront"
+          [(ngModel)]="buildingInfo.buSetBackFront">
+        </div>
+      </td>
+
+      <td>
+        <div><label for="buSetBackBack">{{ 'building-registration.buSetBackBack' | translate }}</label></div>
+        <div>
+        <input type="text" formControlName="buSetBackBack" id="buSetBackBack" name="buSetBackBack"
+        [(ngModel)]="buildingInfo.buSetBackBack">
+      </div>
+
+    </td>
+    <td>
+      <div><label for="buSetBackRight">{{ 'building-registration.buSetBackRight' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="buSetBackRight" id="buSetBackRight" name="buSetBackRight"
+      [(ngModel)]="buildingInfo.buSetBackRight">
+    </div>
+  </td>
+
+  <td>
+    <div><label for="buSetBackLeft">{{ 'building-registration.buSetBackLeft' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="buSetBackLeft" id="buSetBackLeft" name="buSetBackLeft"
+    [(ngModel)]="buildingInfo.buSetBackLeft">
+  </div>
+</td>
+    </tr>
+    <tr>
+      <td>
+          <div><label for="buLayoutPicture"> {{ 'building-registration.buLayoutPicture' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="buLayoutPicture" id="buLayoutPicture" name="buLayoutPicture"
+          [(ngModel)]="buildingInfo.buLayoutPicture">
+        </div>
+      </td>
+
+      <td>
+        <div>
+        <label for="buUtilityPicture">{{ 'building-registration.buUtilityPicture' | translate }}</label>
+        <input type="text" formControlName="buUtilityPicture" id="buUtilityPicture" name="buUtilityPicture"
+        [(ngModel)]="buildingInfo.buUtilityPicture">
+      </div>
+
+    </td>
+    <td>
+      <div>
+      <label for="buCenterLongitude">{{ 'building-registration.buCenterLongitude' | translate }}</label>
+      <input type="text" formControlName="buCenterLongitude" id="buCenterLongitude" name="buCenterLongitude"
+      [(ngModel)]="buildingInfo.buCenterLongitude">
+    </div>
+  </td>
+
+  <td>
+    <div>
+    <label for="buCenterLatitude">{{ 'building-registration.buCenterLatitude' | translate }}</label>
+    <input type="text" formControlName="buCenterLatitude" id="buCenterLatitude" name="buCenterLatitude"
+    [(ngModel)]="buildingInfo.buCenterLatitude">
+  </div>
+</td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <div>
+            <label for="buRemark">{{ 'plot-registration.plRemark' | translate }}</label>
+            <textarea rows="2"
+            placeholder="Building Registration Remarks or Notes"
+            maxlength="500"
+            autocapitalize="on"
+            formControlName="buRemark" id="buRemark" name="buRemark"></textarea>
+        </div>
+      </td>
+      <td></td>
+
+
+    <td>
+      <label>{{ 'plot-registration.mapLoadingCenter' | translate }}</label>
+      <button class="mapLoading" (click)="mapLoadingCoordinatePoints()">
+          {{ 'ui_buttons.mapLoadingCenterButton' | translate }}
+      </button>
+    </td>
+    <td></td>
+    </tr>
+
+
+    </table>
+
+
+  <div>
+    <button class="save-button" (click)="addOrSaveBuildingRegistration()">
+        {{ 'ui_buttons.save' | translate }}
+    </button>
+    <button class="delete-button" (click)="buildingRegistrationDelete(selectedItem.id)">
+        {{ 'ui_buttons.reset' | translate }}
+      </button>
+    <button class="cancel-button" (click)="saveEditDeleteCancel()">
+        {{ 'ui_buttons.cancel' | translate }}
+    </button>
+  </div>
+
+</form>
+

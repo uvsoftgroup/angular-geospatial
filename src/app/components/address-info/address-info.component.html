@@ -1,0 +1,168 @@
+<!--Address Registration Generator-->
+<form [formGroup]="addressRegistrationForm">
+
+  {{addressRegistrationForm.value | json}}
+   {{addressInfo | json}}
+<!--
+  <p-table
+  [value]="addressInfos"
+  dataKey="adId"
+  [paginator]="true"
+  [lazy]="true"
+  [paginator]="true"
+  [rows]="10"
+  [first]="1"
+  selectionMode="single"
+  (selectionChange)="onSelectionChanged($event)"
+  [selection]="selectedItem"
+  [totalRecords]="100"
+>
+  <ng-template pTemplate="header">
+      <tr>
+          <th> {{ 'address-registration.adId' | translate }}</th>
+          <th> {{ 'address-registration.userRefNrId' | translate }}</th>
+          <th> {{ 'address-registration.adRefId' | translate }}</th>
+
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item >
+      <tr [pSelectableRow]="item" [pSelectableRowIndex]="item.adId">
+          <td>{{ item.adId }}</td>
+          <td>{{ item.userRefNrId }}</td>
+          <td>{{ item.adRefId }}</td>
+      </tr>
+  </ng-template>
+</p-table>
+<br>
+-->
+  <div>
+    <button class="save-button" (click)="userAddressGenerator()">
+        {{ 'ui_buttons.new' | translate }}
+    </button>
+    <button class="edit-button" (click)="userAddressGenerator()">
+        {{ 'ui_buttons.edit' | translate }}
+    </button>
+    <button class="delete-button" (click)="userAddressDelete(selectedItem.id)">
+        {{ 'ui_buttons.delete' | translate }}
+    </button>
+  </div>
+
+  <table>
+  <tr>
+    <td>
+      <div>
+        <label for="adId"> {{ 'address-registration.adId' | translate }}</label>
+        <input type="text" formControlName="adId" id="adId" name="adId"
+        [(ngModel)]="addressInfo.adId">
+      </div>
+    </td>
+    <td>
+      <div>
+        <label for="userRefNrId">{{ 'address-registration.userRefNrId' | translate }}</label>
+        <input type="text" formControlName="userRefNrId" id="userRefNrId" name="userRefNrId"
+        [(ngModel)]="addressInfo.userRefNrId">
+      </div>
+    </td>
+    <td>
+        <div formGroupName="geometryGisData">
+            <label for="adRefId">{{ 'address-registration.adRefId' | translate }}</label>
+            <input type="text" formControlName="adRefId" id="adRefId" name="adRefId">
+        </div>
+      </td>
+      <td>
+          <div formGroupName="geometryGisData">
+              <label for="adType">{{ 'address-registration.adType' | translate }}</label>
+              <select formControlName="adType">
+                  <option *ngFor="let addressTypeInfo of addressTypeInfos" >{{addressTypeInfo.value}}</option>
+                </select>
+          </div>
+        </td>
+     </tr>
+     <tr>
+        <td>
+            <div formGroupName="geometryGisData">
+                <label for="adCity">{{ 'address-registration.adCity' | translate }}</label>
+                <input type="text" formControlName="adCity" id="adCity" name="adCity">
+            </div>
+          </td>
+          <td>
+              <div formGroupName="geometryGisData">
+                  <label for="adRoad">{{ 'address-registration.adRoad' | translate }}</label>
+                  <input type="text" formControlName="adRoad" id="adRoad" name="adRoad">
+              </div>
+            </td>
+            <td>
+                <div formGroupName="geometryGisData">
+                    <label for="adRoadType">{{ 'address-registration.adRoadType' | translate }}</label>
+                    <select formControlName="adRoadType">
+                        <option *ngFor="let roadTypeInfo of roadTypeInfos" >{{roadTypeInfo.value}}</option>
+                      </select>
+                </div>
+              </td>
+              <td>
+                  <div formGroupName="geometryGisData">
+                      <label for="adHouseNumber">{{ 'address-registration.adHouseNumber' | translate }}</label>
+                      <input type="text" formControlName="adHouseNumber" id="adHouseNumber" name="adHouseNumber">
+                  </div>
+                </td>
+             </tr>
+             <tr>
+                <td>
+                    <div formGroupName="geometryGisData">
+                        <label for="adPostCode">{{ 'address-registration.adPostCode' | translate }}</label>
+                        <input type="text" formControlName="adPostCode" id="adPostCode" name="adPostCode">
+                    </div>
+                  </td>
+                  <td>
+                      <div formGroupName="geometryGisData">
+                          <label for="adCountry">{{ 'address-registration.adCountry' | translate }}</label>
+                          <input type="text" formControlName="adCountry" id="adCountry" name="adCountry">
+                      </div>
+                    </td>
+                    <td>
+                        <div formGroupName="geometryGisData">
+                            <label for="geoType">{{ 'address-registration.geoType' | translate }}</label>
+                            <select formControlName="geoType">
+                                <option *ngFor="let geometryTypeInfo of geometryTypeInfos" >{{geometryTypeInfo.value}}</option>
+                              </select>
+                        </div>
+                      </td>
+                     </tr>
+                  <tr>
+                     <td>
+                        <div formGroupName="geometryGisData">
+                            <label for="wktToGeometry">{{ 'address-registration.wktToGeometry' | translate }}</label>
+                            <textarea
+                            placeholder="Polygon Coordinate Points Longitude and Latitude"
+                            autocapitalize="on"
+                            formControlName="wktToGeometry" id="wktToGeometry" name="wktToGeometry"></textarea>
+                        </div>
+                      </td>
+                     <td>
+                      <button type="button" class="mapLoading" (click)="toggleChild()">{{ 'ui_buttons.mapLoadingButton' | translate }}</button>
+                      <div>
+                      <app-draw-modify-vector-feature-form [showMePartiallyMap]="showVar"></app-draw-modify-vector-feature-form>
+                      </div>
+                    </td>
+                   </tr>
+  </table>
+
+
+  <div>
+    <button class="save-button" (click)="addOrSaveUserAddress()">
+        {{ 'ui_buttons.save' | translate }}
+    </button>
+    <button class="delete-button" (click)="userAddressDelete(selectedItem.id)">
+        {{ 'ui_buttons.reset' | translate }}
+      </button>
+    <button class="cancel-button" (click)="saveEditDeleteCancel()">
+        {{ 'ui_buttons.cancel' | translate }}
+    </button>
+  </div>
+
+
+
+</form>
+
+
+

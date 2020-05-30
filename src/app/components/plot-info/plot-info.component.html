@@ -1,0 +1,185 @@
+<form [formGroup]="plotRegistrationForm">
+
+ <!--  {{plotInfo | json}} -->
+
+  <div>
+    <button class="save-button" (click)="plotRegistrationGenerator()">
+      {{ 'ui_buttons.new' | translate }}
+    </button>
+    <button class="edit-button" (click)="plotRegistrationGenerator()">
+      {{ 'ui_buttons.edit' | translate }}
+    </button>
+    <button class="delete-button" (click)="plotRegistrationDelete(selectedItem.id)">
+      {{ 'ui_buttons.delete' | translate }}
+    </button>
+  </div>
+
+  <table>
+    <tr>
+      <td>
+        <div>
+          <label for="plId"> {{ 'plot-registration.plId' | translate }}</label>
+        </div>
+        <div>
+          <input type="text" formControlName="plId" id="plId" name="plId" [(ngModel)]="plotInfo.plId">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="plAddressId">{{ 'plot-registration.plAddressId' | translate }}</label>
+          <input type="text" formControlName="plAddressId" id="plAddressId" name="plAddressId"
+            [(ngModel)]="plotInfo.plAddressId">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="userRefNrId">{{ 'plot-registration.userRefNrId' | translate }}</label>
+          <input type="text" formControlName="userRefNrId" id="userRefNrId" name="userRefNrId"
+            [(ngModel)]="plotInfo.userRefNrId">
+        </div>
+      </td>
+      <td>
+        <div><label for="plCode">{{ 'plot-registration.plCode' | translate }}</label></div>
+        <div><input type="text" formControlName="plCode" id="plCode" name="plCode" [(ngModel)]="plotInfo.plCode">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div><label for="plName"> {{ 'plot-registration.plName' | translate }}</label></div>
+        <div> <input type="text" formControlName="plName" id="plName" name="plName" [(ngModel)]="plotInfo.plName">
+        </div>
+      </td>
+      <td>
+        <div> <label for="plType">{{ 'plot-registration.plType' | translate }}</label></div>
+        <div>
+          <input type="text" formControlName="plType" id="plType" name="plType" [(ngModel)]="plotInfo.plType">
+        </div>
+      </td>
+      <td>
+        <div><label for="plNumber">{{ 'plot-registration.plNumber' | translate }}</label> </div>
+        <div>
+          <input type="text" formControlName="plNumber" id="plNumber" name="plNumber" [(ngModel)]="plotInfo.plNumber">
+        </div>
+      </td>
+      <td>
+        <div><label for="plMonzaNumber">{{ 'plot-registration.plMonzaNumber' | translate }}</label> </div>
+        <div>
+          <input type="text" formControlName="plMonzaNumber" id="plMonzaNumber" name="plMonzaNumber"
+            [(ngModel)]="plotInfo.plMonzaNumber">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div><label for="plCSNumber"> {{ 'plot-registration.plCSNumber' | translate }}</label></div>
+        <div>
+          <input type="text" formControlName="plCSNumber" id="plCSNumber" name="plCSNumber"
+            [(ngModel)]="plotInfo.plCSNumber">
+        </div>
+      </td>
+      <td>
+        <div> <label for="plMSNumber">{{ 'plot-registration.plMSNumber' | translate }}</label> </div>
+        <div>
+          <input type="text" formControlName="plMSNumber" id="plMSNumber" name="plMSNumber"
+            [(ngModel)]="plotInfo.plMSNumber">
+        </div>
+      </td>
+      <td>
+        <div><label for="plType">{{ 'plot-registration.plType' | translate }}</label></div>
+        <div>
+          <select formControlName="plType">
+            <option *ngFor="let plotTypeInfo of plotTypeInfos">{{plotTypeInfo.value}}</option>
+          </select>
+        </div>
+      <td>
+        <div><label for="plTotalArea"> {{ 'plot-registration.plTotalArea' | translate }}</label> </div>
+        <div>
+          <input type="text" formControlName="plTotalArea" id="plTotalArea" name="plTotalArea"
+            [(ngModel)]="plotInfo.plTotalArea">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <label for="plTotalBuildingCoverArea">{{ 'plot-registration.plTotalBuildingCoverArea' | translate }}</label>
+          <input type="text" formControlName="plTotalBuildingCoverArea" id="plTotalBuildingCoverArea"
+            name="plTotalBuildingCoverArea" [(ngModel)]="plotInfo.plTotalBuildingCoverArea">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="plNumberOfBuilding">{{ 'plot-registration.plNumberOfBuilding' | translate }}</label>
+          <input type="text" formControlName="plNumberOfBuilding" id="plNumberOfBuilding" name="plNumberOfBuilding"
+            [(ngModel)]="plotInfo.plNumberOfBuilding">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="plHeightFromMSL">{{ 'plot-registration.plHeightFromMSL' | translate }}</label>
+          <input type="text" formControlName="plMSNumber" id="plHeightFromMSL" name="plHeightFromMSL"
+            [(ngModel)]="plotInfo.plHeightFromMSL">
+        </div>
+      </td>
+      <td>
+        <div><label for="plLayoutPicture">{{ 'plot-registration.plLayoutPicture' | translate }}</label></div>
+        <div>
+          <input type="text" formControlName="plLayoutPicture" id="plLayoutPicture" name="plLayoutPicture"
+            [(ngModel)]="plotInfo.plLayoutPicture">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <label for="utilityLocationMap">{{ 'plot-registration.utilityLocationMap' | translate }}</label>
+          <input type="text" formControlName="utilityLocationMap" id="utilityLocationMap" name="utilityLocationMap"
+            [(ngModel)]="plotInfo.utilityLocationMap">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="plCenterLongitude"> {{ 'plot-registration.plCenterLongitude' | translate }}</label>
+          <input type="text" formControlName="plCenterLongitude" id="plCenterLongitude" name="plCenterLongitude"
+            [(ngModel)]="plotInfo.plCenterLongitude">
+        </div>
+      </td>
+      <td>
+        <div>
+          <label for="plCenterLatitude">{{ 'plot-registration.plCenterLatitude' | translate }}</label>
+          <input type="text" formControlName="plCenterLatitude" id="plCenterLatitude" name="plCenterLatitude"
+            [(ngModel)]="plotInfo.plCenterLatitude">
+        </div>
+      </td>
+      <td>
+        <label>{{ 'plot-registration.mapLoadingCenter' | translate }}</label>
+        <button class="mapLoading" (click)="mapLoadingCoordinatePoints()">
+          {{ 'ui_buttons.mapLoadingCenterButton' | translate }}
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <label for="plRemark">{{ 'plot-registration.plRemark' | translate }}</label>
+          <textarea placeholder="Plot Registration Remarks or Notes" autocapitalize="on" formControlName="plRemark"
+            id="plRemark" name="plRemark" [(ngModel)]="plotInfo.plRemark"></textarea>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    <button class="save-button" (click)="addOrSavePlotRegistration()">
+      {{ 'ui_buttons.save' | translate }}
+    </button>
+    <button class="delete-button" (click)="plotRegistrationDelete(selectedItem.id)">
+      {{ 'ui_buttons.reset' | translate }}
+    </button>
+    <button class="cancel-button" (click)="saveEditDeleteCancel()">
+      {{ 'ui_buttons.cancel' | translate }}
+    </button>
+  </div>
+
+</form>

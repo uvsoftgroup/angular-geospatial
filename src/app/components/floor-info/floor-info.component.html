@@ -1,0 +1,168 @@
+<form [formGroup]="floorRegistrationForm">
+
+  <!--{{floorRegistrationForm.value | json}} -->
+  <!--{{floorInfo | json}} -->
+  <div>
+    <button class="save-button" (click)="floorRegistrationGenerator()">
+        {{ 'ui_buttons.new' | translate }}
+    </button>
+    <button class="edit-button" (click)="floorRegistrationGenerator()">
+        {{ 'ui_buttons.edit' | translate }}
+    </button>
+    <button class="delete-button" (click)="floorRegistrationDelete(selectedItem.id)">
+        {{ 'ui_buttons.delete' | translate }}
+    </button>
+  </div>
+
+  <table>
+
+    <tr>
+      <td>
+          <div> <label for="flId"> {{ 'floor-registration.flId' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="flId" id="flId" name="flId"
+          [(ngModel)]="floorInfo.flId">
+        </div>
+      </td>
+
+      <td>
+        <div><label for="flBuId">{{ 'floor-registration.flBuId' | translate }}</label></div>
+        <div>
+        <input type="text" formControlName="flBuId" id="flBuId" name="flBuId"
+        [(ngModel)]="floorInfo.flBuId">
+      </div>
+
+    </td>
+    <td>
+      <div><label for="userRefNrId">{{ 'floor-registration.userRefNrId' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="userRefNrId" id="userRefNrId" name="userRefNrId"
+      [(ngModel)]="floorInfo.userRefNrId">
+    </div>
+  </td>
+
+  <td>
+    <div><label for="flCode">{{ 'floor-registration.flCode' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="flCode" id="flCode" name="flCode"
+    [(ngModel)]="floorInfo.flCode">
+  </div>
+</td>
+    </tr>
+
+    <tr>
+      <td>
+          <div> <label for="flName"> {{ 'floor-registration.flName' | translate }}</label></div>
+          <div>
+          <input type="text" formControlName="flName" id="flName" name="flName"
+          [(ngModel)]="floorInfo.flName">
+        </div>
+      </td>
+
+      <td>
+        <div> <label for="flUseType">{{ 'floor-registration.flUseType' | translate }}</label></div>
+        <div>
+        <select formControlName="flUseType">
+            <option *ngFor="let floorTypeInfo of floorTypeInfos" >{{floorTypeInfo.value}}</option>
+          </select>
+        </div>
+
+    </td>
+    <td>
+      <div><label for="flNumberOfFloorUnit">{{ 'floor-registration.flNumberOfFloorUnit' | translate }}</label></div>
+      <div>
+      <input type="text" formControlName="flNumberOfFloorUnit" id="flNumberOfFloorUnit" name="flNumberOfFloorUnit"
+      [(ngModel)]="floorInfo.flNumberOfFloorUnit">
+    </div>
+  </td>
+
+  <td>
+    <div> <label for="flTotalFloorArea">{{ 'floor-registration.flTotalFloorArea' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="flTotalFloorArea" id="flTotalFloorArea" name="flTotalFloorArea"
+    [(ngModel)]="floorInfo.flTotalFloorArea">
+  </div>
+</td>
+    </tr>
+    <tr>
+  <td>
+    <div> <label for="flTotalFloorHeight">{{ 'floor-registration.flTotalFloorHeight' | translate }}</label> </div>
+    <div>
+    <input type="text" formControlName="flTotalFloorHeight" id="flTotalFloorHeight" name="flTotalFloorHeight"
+    [(ngModel)]="floorInfo.flTotalFloorHeight">
+  </div>
+</td>
+
+<td>
+    <div><label for="flLayoutPicture">{{ 'floor-registration.flLayoutPicture' | translate }}</label></div>
+    <div>
+    <input type="text" formControlName="flLayoutPicture" id="flLayoutPicture" name="flLayoutPicture"
+    [(ngModel)]="floorInfo.flLayoutPicture">
+  </div>
+  </td>
+
+<td>
+  <div><label for="flCenterLongitude">{{ 'floor-registration.flCenterLongitude' | translate }}</label></div>
+  <div>
+  <input type="text" formControlName="flCenterLongitude" id="flCenterLongitude" name="flCenterLongitude"
+  [(ngModel)]="floorInfo.flCenterLongitude">
+</div>
+</td>
+
+<td>
+  <div><label for="flCenterLatitude">{{ 'floor-registration.flCenterLatitude' | translate }}</label></div>
+  <div>
+  <input type="text" formControlName="flCenterLatitude" id="flCenterLatitude" name="flCenterLatitude"
+  [(ngModel)]="floorInfo.flCenterLatitude">
+</div>
+</td>
+    </tr>
+
+    <tr>
+        <td>
+            <div><label for="flUtilityPicture">{{ 'floor-registration.flUtilityPicture' | translate }}</label></div>
+            <div>
+            <input type="text" formControlName="flUtilityPicture" id="flUtilityPicture" name="flUtilityPicture"
+            [(ngModel)]="floorInfo.flUtilityPicture">
+          </div>
+          </td>
+      <td></td>
+          <td>
+              <div> <label>{{ 'plot-registration.mapLoadingCenter' | translate }}</label></div>
+              <div>
+              <button class="mapLoading" (click)="mapLoadingCoordinatePoints()">
+                  {{ 'ui_buttons.mapLoadingCenterButton' | translate }}
+              </button>
+              </div>
+            </td>
+
+    </tr>
+
+    <tr>
+      <td>
+        <div><label for="flRemark">{{ 'floor-registration.flRemark' | translate }}</label></div>
+        <div>
+        <textarea
+            placeholder="Floor Registration Remarks or Notes"
+            autocapitalize="on"
+            formControlName="flRemark" id="flRemark" name="flRemark"
+            [(ngModel)]="floorInfo.flRemark"></textarea>
+      </div>
+    </td>
+
+    </tr>
+    </table>
+
+  <div>
+    <button class="save-button" (click)="addOrSaveFloorRegistration()">
+        {{ 'ui_buttons.save' | translate }}
+    </button>
+    <button class="delete-button" (click)="floorRegistrationDelete(selectedItem.id)">
+        {{ 'ui_buttons.reset' | translate }}
+      </button>
+    <button class="cancel-button" (click)="saveEditDeleteCancel()">
+        {{ 'ui_buttons.cancel' | translate }}
+    </button>
+  </div>
+
+</form>

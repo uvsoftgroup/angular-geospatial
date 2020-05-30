@@ -1,0 +1,24 @@
+/* ProfileEditorComponent's private CSS styles */
+:host {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+input {
+  width: 16em;
+  height:2.75em ;
+  font-size: 1em;
+  padding-left: .4em;
+}
+
+select {
+  width: 16em;
+  height:2.75em ;
+  font-size: 1em;
+  padding-left: .4em;
+}
+textarea{
+  width: 20em;
+  height:10em;
+}

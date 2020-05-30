@@ -1,0 +1,196 @@
+<!--User Registration Generator-->
+  <form #userRegistrationForm="ngForm">
+     <!--  {{userRegistration | json}}-->
+      <!--
+        <p-table
+                    [value]="userRegistrations"
+                    dataKey="userRegistrationId"
+                    [paginator]="true"
+                    [lazy]="true"
+                    [paginator]="true"
+                    [rows]="10"
+                    [first]="1"
+                    selectionMode="single"
+                    (selectionChange)="onSelectionChanged($event)"
+                    [selection]="selectedItem"
+                    [totalRecords]="100"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th> {{ 'user-registration.userRegistrationId' | translate }}</th>
+                            <th> {{ 'user-registration.userAddressId' | translate }}</th>
+                            <th> {{ 'user-registration.userRegistrationName' | translate }}</th>
+                            <th> {{ 'user-registration.userMail' | translate }}</th>
+                            <th>{{ 'user-registration.userRegistrationfullName' | translate }}</th>
+                            <th>{{ 'user-registration.userRegistrationCrDate' | translate }}</th>
+                            <th>{{ 'user-registration.userRegistrationLDate' | translate }}</th>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item >
+                        <tr [pSelectableRow]="item" [pSelectableRowIndex]="item.userRegistrationId">
+                            <td>{{ item.userRegistrationId }}</td>
+                            <td>{{ item.userAddressId }}</td>
+                            <td>{{ item.userRegistrationName }}</td>
+                            <td>{{ item.userMail}}</td>
+                            <td>{{ item.userRegistrationfullName }}</td>
+                            <td>{{ item.userRegistrationCrDate }}</td>
+                            <td>{{ item.userRegistrationLDate }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <br>
+              -->
+    <div>
+      <button class="save-button" (click)="userRegistrationGenerator()">
+          {{ 'ui_buttons.new' | translate }}
+      </button>
+      <button class="edit-button" (click)="userRegistrationGenerator()">
+          {{ 'ui_buttons.edit' | translate }}
+      </button>
+      <button class="delete-button" (click)="userRegistrationDelete(selectedItem.id)">
+          {{ 'ui_buttons.delete' | translate }}
+      </button>
+    </div>
+    <br>
+   <h4>{{ 'ui_buttons.title' | translate }}:</h4>
+    <table>
+      <tr>
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationId"> {{ 'user-registration.userRegistrationId' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationId" name="userRegistrationId"
+            [(ngModel)]="userRegistration.userRegistrationId">
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label for="userAddressId">{{ 'user-registration.userAddressId' | translate }}</label>
+            <input type="text" class="form-control" id="userAddressId" name="userAddressId"
+            [(ngModel)]="userRegistration.userAddressId">
+          </div>
+
+        </td>
+
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationFName">{{ 'user-registration.userRegistrationFName' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationFName" name="userRegistrationFName"
+            [(ngModel)]="userRegistration.userRegistrationFName" >
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationMName">{{ 'user-registration.userRegistrationMName' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationMName" name="userRegistrationMName"
+            [(ngModel)]="userRegistration.userRegistrationMName" >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationLName">{{ 'user-registration.userRegistrationLName' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationLName" name="userRegistrationLName"
+            [(ngModel)]="userRegistration.userRegistrationLName" >
+          </div>
+        </td>
+
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationfullName">{{ 'user-registration.userRegistrationfullName' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationfullName" name="userRegistrationfullName"
+            [(ngModel)]="userRegistration.userRegistrationfullName" >
+          </div>
+
+        </td>
+
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationCrDate">{{ 'user-registration.userRegistrationCrDate' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationCrDate" name="userRegistrationCrDate"
+            [(ngModel)]="userRegistration.userRegistrationCrDate" >
+          </div>
+
+        </td>
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationLDate">{{ 'user-registration.userRegistrationLDate' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationLDate" name="userRegistrationLDate"
+            [(ngModel)]="userRegistration.userRegistrationLDate" >
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="form-group">
+            <label for="userMail">{{ 'user-registration.userMail' | translate }}</label>
+            <input type="text" class="form-control" id="userMail" name="userMail"
+            [(ngModel)]="userRegistration.userMail" >
+          </div>
+        </td>
+
+        <td>
+          <div class="form-group">
+            <label for="userPhoneNr">{{ 'user-registration.userPhoneNr' | translate }}</label>
+            <input type="text" class="form-control" id="userPhoneNr" name="userPhoneNr"
+            [(ngModel)]="userRegistration.userPhoneNr" >
+          </div>
+
+        </td>
+
+        <td>
+          <div class="form-group">
+            <label for="userMobileNr">{{ 'user-registration.userMobileNr' | translate }}</label>
+            <input type="text" class="form-control" id="userMobileNr" name="userMobileNr"
+            [(ngModel)]="userRegistration.userMobileNr" >
+          </div>
+        </td>
+        <td>
+            <div class="form-group">
+              <label for="userWww">{{ 'user-registration.userWww' | translate }}</label>
+              <input type="text" class="form-control" id="userWww" name="userWww"
+              [(ngModel)]="userRegistration.userWww" >
+            </div>
+
+          </td>
+
+      </tr>
+      <tr>
+
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationName">{{ 'user-registration.userRegistrationName' | translate }}</label>
+            <input type="text" class="form-control" id="userRegistrationName" name="userRegistrationName"
+            [(ngModel)]="userRegistration.userRegistrationName"  >
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <label for="userRegistrationPassword">{{ 'user-registration.userRegistrationPassword' | translate }}</label>
+            <input type="password" class="form-control" id="userRegistrationPassword" name="userRegistrationPassword"
+           [(ngModel)]="userRegistration.userRegistrationPassword" >
+          </div>
+        </td>
+        <td>
+        </td>
+        <td>
+          </td>
+      </tr>
+    </table>
+
+    <div>
+      <button class="save-button" (click)="addOrSaveUserRegistration()">
+          {{ 'ui_buttons.save' | translate }}
+      </button>
+      <button class="delete-button" (click)="userRegistrationDelete(selectedItem.id)">
+          {{ 'ui_buttons.reset' | translate }}
+        </button>
+      <button class="cancel-button" (click)="saveEditDeleteCancel()">
+          {{ 'ui_buttons.cancel' | translate }}
+      </button>
+    </div>
+  </form>
+
+
